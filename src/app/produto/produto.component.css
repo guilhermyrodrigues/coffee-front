@@ -1,0 +1,28 @@
+.produto-imagem {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.quantidade-controle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.btn-quantidade {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preco {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #198754;
+  margin: 1rem 0;
+}

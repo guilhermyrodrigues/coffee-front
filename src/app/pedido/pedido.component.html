@@ -50,13 +50,18 @@
           </div>
         </div>
 
-        <div class="col-12 d-flex justify-content-between">
-          <button class="btn btn-secondary" (click)="voltarParaCarrinho()">
-            <i class="bi bi-arrow-left me-2"></i>Voltar
-          </button>
-          <button class="btn btn-primary" (click)="finalizarPedido()" [disabled]="!pedido.cpfCliente || !pedido.formaPagamento">
-            <i class="bi bi-check-lg me-2"></i>Finalizar Pedido
-          </button>
+        <div class="col-12">
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-secondary" (click)="voltarParaCarrinho()">
+              <i class="bi bi-arrow-left me-2"></i>Voltar para Carrinho
+            </button>
+            <button class="btn btn-outline-primary" (click)="voltarParaCarrinho()">
+              <i class="bi bi-cup-hot me-2"></i>Adicionar Mais Produtos
+            </button>
+            <button class="btn btn-primary" (click)="finalizarPedido()" [disabled]="!pedido.cpfCliente || !pedido.formaPagamento">
+              <i class="bi bi-check-lg me-2"></i>Finalizar
+            </button>
+          </div>
         </div>
       </div>
     </div>

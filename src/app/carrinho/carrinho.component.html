@@ -60,6 +60,9 @@
       <button class="btn btn-outline-danger" (click)="limparCarrinho()">
         <i class="bi bi-trash me-2"></i>Limpar Carrinho
       </button>
+      <button class="btn btn-outline-primary" routerLink="/cardapio">
+        <i class="bi bi-cup-hot me-2"></i>Voltar ao Cardápio
+      </button>
       <div class="text-end">
         <h4>Total: R$ {{total | number:'1.2-2'}}</h4>
         <button class="btn btn-success" (click)="finalizarPedido()">

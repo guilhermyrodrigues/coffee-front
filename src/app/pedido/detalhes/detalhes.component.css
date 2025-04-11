@@ -1,0 +1,23 @@
+.card {
+  margin-bottom: 1rem;
+}
+
+.table-responsive {
+  margin: 1rem 0;
+}
+
+.btn-group {
+  margin-top: 1rem;
+}
+
+.rating {
+  color: #ffc107;
+  font-size: 1.5rem;
+}
+
+.comment {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 0.25rem;
+}

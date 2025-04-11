@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <div *ngIf="produto" class="row">
+    <div class="col-md-6">
+      <img [src]="produto.imagemUrl" [alt]="produto.nome" class="img-fluid rounded">
+    </div>
+    <div class="col-md-6">
+      <h1 class="mb-3">{{produto.nome}}</h1>
+      <p class="lead">{{produto.descricao}}</p>
+      <p class="h4 mb-4">R$ {{produto.preco | number:'1.2-2'}}</p>
+
+      <div class="mb-4">
+        <label class="form-label">Quantidade</label>
+        <div class="d-flex align-items-center">
+          <button class="btn btn-outline-secondary" (click)="diminuirQuantidade()">
+            <i class="bi bi-dash"></i>
+          </button>
+          <span class="mx-3">{{quantidade}}</span>
+          <button class="btn btn-outline-secondary" (click)="aumentarQuantidade()">
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary btn-lg" (click)="adicionarAoCarrinho()">
+          <i class="bi bi-cart-plus me-2"></i>Adicionar ao Carrinho
+        </button>
+        <button class="btn btn-outline-secondary" routerLink="/cardapio">
+          <i class="bi bi-arrow-left me-2"></i>Voltar ao Cardápio
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

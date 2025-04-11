@@ -61,4 +61,8 @@ export class CarrinhoComponent implements OnInit, OnDestroy {
   finalizarPedido(): void {
     this.router.navigate(['/pedido']);
   }
+
+  voltarParaCarrinho(): void {
+    this.router.navigate(['/carrinho']);
+  }
 }

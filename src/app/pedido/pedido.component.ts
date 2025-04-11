@@ -68,9 +68,9 @@ export class PedidoComponent implements OnInit {
     }
 
     this.pedidoService.criarPedido(this.pedido).subscribe({
-      next: () => {
+      next: (pedidoCriado) => {
         this.carrinhoService.limparCarrinho();
-        this.router.navigate(['/pedido/sucesso']);
+        this.router.navigate(['/pedido', pedidoCriado.id]);
       },
       error: (error) => {
         console.error('Erro ao finalizar pedido:', error);
