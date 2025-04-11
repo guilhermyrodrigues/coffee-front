@@ -1,1 +1,34 @@
-<p>cardapio works!</p>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">Cardápio</h1>
+    <button class="btn btn-primary" routerLink="/carrinho">
+      <i class="bi bi-cart me-2"></i>Carrinho
+    </button>
+  </div>
+
+  <div *ngIf="mensagemSucesso" class="alert alert-success alert-dismissible fade show" role="alert">
+    {{mensagemSucesso}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let produto of produtos">
+      <div class="card h-100">
+        <img [src]="produto.imagemUrl" [alt]="produto.nome" class="card-img-top" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{produto.nome}}</h5>
+          <p class="card-text">{{produto.descricao}}</p>
+          <p class="card-text">
+            <small class="text-muted">Tempo de preparo: {{produto.tempoPreparoMinutos}} min</small>
+          </p>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <span class="h5 mb-0">R$ {{produto.preco | number:'1.2-2'}}</span>
+          <button class="btn btn-primary" (click)="adicionarAoCarrinho(produto)">
+            <i class="bi bi-cart-plus me-2"></i>Adicionar ao Carrinho
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

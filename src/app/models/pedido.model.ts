@@ -1,17 +1,15 @@
-// pedido.model.ts
 import { ItemPedido } from './item-pedido.model';
 import { Avaliacao } from './avaliacao.model';
 
 export interface Pedido {
-    id?: number; // gerado pelo backend
-    cpf: string;
-    valorTotal?: number; // calculado no backend
+    id?: number;
+    cpfCliente: string;
+    valorTotal: number;
     formaPagamento: string;
-    dataHoraPedido?: string; // gerado no backend
-    previsaoEntrega?: string; // calculado no backend
-    status?: 'PENDENTE' | 'EM_PREPARO' | 'FINALIZADO' | 'CANCELADO'; // pode iniciar com valor padrão no backend
+    dataHoraPedido: string;
+    previsaoEntrega?: string;
+    status: 'PENDENTE' | 'EM_PREPARO' | 'FINALIZADO' | 'CANCELADO';
     itens: ItemPedido[];
     avaliacao?: Avaliacao;
     motivoCancelamento?: string;
-  }
-  
+}

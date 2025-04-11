@@ -10,10 +10,20 @@ export interface ItemCarrinho {
 
 @Injectable({ providedIn: 'root' })
 export class CarrinhoService {
-  private carrinhoSubject = new BehaviorSubject<ItemCarrinho[]>([]);
+  private carrinhoSubject = new BehaviorSubject<ItemCarrinho[]>(this.carregarCarrinho());
   carrinho$ = this.carrinhoSubject.asObservable();
 
+  private carregarCarrinho(): ItemCarrinho[] {
+    const carrinhoSalvo = localStorage.getItem('carrinho');
+    return carrinhoSalvo ? JSON.parse(carrinhoSalvo) : [];
+  }
+
+  private salvarCarrinho(carrinho: ItemCarrinho[]): void {
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+  }
+
   adicionarProduto(produto: Produto) {
+    console.log('Adicionando produto ao carrinho:', produto);
     const atual = this.carrinhoSubject.getValue();
     const index = atual.findIndex(item => item.produto.id === produto.id);
 
@@ -23,16 +33,20 @@ export class CarrinhoService {
       atual.push({ produto, quantidade: 1 });
     }
 
+    console.log('Carrinho atualizado:', atual);
     this.carrinhoSubject.next([...atual]);
+    this.salvarCarrinho(atual);
   }
 
   limparCarrinho() {
     this.carrinhoSubject.next([]);
+    this.salvarCarrinho([]);
   }
 
   removerProduto(produtoId: number) {
     const atual = this.carrinhoSubject.getValue().filter(p => p.produto.id !== produtoId);
     this.carrinhoSubject.next([...atual]);
+    this.salvarCarrinho(atual);
   }
 
   getItens(): ItemCarrinho[] {
