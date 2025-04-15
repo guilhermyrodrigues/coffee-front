@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ProdutoService } from '../services/produto.service';
-import { CarrinhoService } from '../services/carrinho.service';
-import { Produto } from '../models/produto.model';
+import { ProdutoService } from '../../services/produto.service';
+import { CarrinhoService } from '../../services/carrinho.service';
+import { Produto } from '../../models/produto.model';
 
 @Component({
   selector: 'app-cardapio',

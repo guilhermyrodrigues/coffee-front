@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { CarrinhoService, ItemCarrinho } from '../services/carrinho.service';
+import { CarrinhoService, ItemCarrinho } from '../../services/carrinho.service';
 import { Subscription } from 'rxjs';
 
 @Component({

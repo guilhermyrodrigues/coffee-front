@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PedidoService } from '../services/pedido.service';
-import { ProdutoService } from '../services/produto.service';
-import { Pedido } from '../models/pedido.model';
-import { Produto } from '../models/produto.model';
+import { PedidoService } from '../../services/pedido.service';
+import { ProdutoService } from '../../services/produto.service';
+import { Pedido } from '../../models/pedido.model';
+import { Produto } from '../../models/produto.model';
 import { Subscription, interval } from 'rxjs';
 
 @Component({

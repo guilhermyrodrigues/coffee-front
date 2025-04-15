@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CarrinhoService } from '../services/carrinho.service';
-import { PedidoService } from '../services/pedido.service';
-import { ProdutoService } from '../services/produto.service';
-import { Pedido } from '../models/pedido.model';
-import { ItemPedido } from '../models/item-pedido.model';
-import { Produto } from '../models/produto.model';
+import { CarrinhoService } from '../../services/carrinho.service';
+import { PedidoService } from '../../services/pedido.service';
+import { ProdutoService } from '../../services/produto.service';
+import { Pedido } from '../../models/pedido.model';
+import { ItemPedido } from '../../models/item-pedido.model';
+import { Produto } from '../../models/produto.model';
 
 @Component({
   selector: 'app-pedido',

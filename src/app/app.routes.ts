@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { CardapioComponent } from './cardapio/cardapio.component';
-import { CarrinhoComponent } from './carrinho/carrinho.component';
-import { PedidoComponent } from './pedido/pedido.component';
-import { ProdutoComponent } from './produto/produto.component';
-import { DetalhesPedidoComponent } from './pedido/detalhes/detalhes.component';
-import { CozinhaComponent } from './cozinha/cozinha.component';
+import { CardapioComponent } from './components/cardapio/cardapio.component';
+import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
+import { ProdutoComponent } from './components/produto/produto.component';
+import { DetalhesPedidoComponent } from './components/pedido/detalhes/detalhes.component';
+import { CozinhaComponent } from './components/cozinha/cozinha.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/cardapio', pathMatch: 'full' },
