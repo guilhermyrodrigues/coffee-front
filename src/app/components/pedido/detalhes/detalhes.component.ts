@@ -14,14 +14,14 @@ import { Produto } from '../../../models/produto.model';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './detalhes.component.html',
-  styleUrl: './detalhes.component.css'
+  styleUrl: './detalhes.component.css',
 })
 export class DetalhesPedidoComponent implements OnInit {
   pedido: Pedido | null = null;
   produtos: { [key: number]: Produto } = {};
   avaliacao: Avaliacao = {
     nota: 5,
-    comentario: ''
+    comentario: '',
   };
   motivoCancelamento: string = '';
   mostrarFormularioAvaliacao: boolean = false;
@@ -49,54 +49,58 @@ export class DetalhesPedidoComponent implements OnInit {
         error: (error) => {
           console.error('Erro ao carregar pedido:', error);
           this.router.navigate(['/pedidos']);
-        }
+        },
       });
     }
   }
 
   private carregarProdutos(pedido: Pedido): void {
-    pedido.itens.forEach(item => {
+    pedido.itens.forEach((item) => {
       this.produtoService.buscarPorId(item.produtoId).subscribe({
         next: (produto) => {
           this.produtos[item.produtoId] = produto;
         },
         error: (error) => {
           console.error('Erro ao carregar produto:', error);
-        }
+        },
       });
     });
   }
 
   avaliarPedido(): void {
     if (this.pedido?.id) {
-      this.avaliacaoService.avaliarPedido(this.pedido.id, this.avaliacao).subscribe({
-        next: () => {
-          this.mostrarFormularioAvaliacao = false;
-          if (this.pedido) {
-            this.pedido.avaliacao = this.avaliacao;
-          }
-        },
-        error: (error) => {
-          console.error('Erro ao avaliar pedido:', error);
-        }
-      });
+      this.avaliacaoService
+        .avaliarPedido(this.pedido.id, this.avaliacao)
+        .subscribe({
+          next: () => {
+            this.mostrarFormularioAvaliacao = false;
+            if (this.pedido) {
+              this.pedido.avaliacao = this.avaliacao;
+            }
+          },
+          error: (error) => {
+            console.error('Erro ao avaliar pedido:', error);
+          },
+        });
     }
   }
 
   cancelarPedido(): void {
     if (this.pedido?.id && this.motivoCancelamento) {
-      this.pedidoService.atualizarStatus(this.pedido.id, 'CANCELADO').subscribe({
-        next: () => {
-          this.mostrarFormularioCancelamento = false;
-          if (this.pedido) {
-            this.pedido.status = 'CANCELADO';
-            this.pedido.motivoCancelamento = this.motivoCancelamento;
-          }
-        },
-        error: (error) => {
-          console.error('Erro ao cancelar pedido:', error);
-        }
-      });
+      this.pedidoService
+        .atualizarStatus(this.pedido.id, 'CANCELADO')
+        .subscribe({
+          next: () => {
+            this.mostrarFormularioCancelamento = false;
+            if (this.pedido) {
+              this.pedido.status = 'CANCELADO';
+              this.pedido.motivoCancelamento = this.motivoCancelamento;
+            }
+          },
+          error: (error) => {
+            console.error('Erro ao cancelar pedido:', error);
+          },
+        });
     }
   }
 
@@ -105,6 +109,8 @@ export class DetalhesPedidoComponent implements OnInit {
   }
 
   podeCancelar(): boolean {
-    return this.pedido?.status === 'PENDENTE' || this.pedido?.status === 'EM_PREPARO';
+    return (
+      this.pedido?.status === 'PENDENTE' || this.pedido?.status === 'EM_PREPARO'
+    );
   }
 }

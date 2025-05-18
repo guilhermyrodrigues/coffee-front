@@ -5,4 +5,5 @@ export interface Produto {
   descricao: string;
   imagemUrl: string;
   tempoPreparoMinutos: number;
+  categoria: 'bebida-quente' | 'bebida-gelada' | 'lanche' | 'sobremesa';
 }

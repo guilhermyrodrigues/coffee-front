@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CarrinhoService } from '../../services/carrinho.service';
 import { PedidoService } from '../../services/pedido.service';
 import { ProdutoService } from '../../services/produto.service';
@@ -12,7 +12,7 @@ import { Produto } from '../../models/produto.model';
 @Component({
   selector: 'app-pedido',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './pedido.component.html',
   styleUrl: './pedido.component.css'
 })
@@ -77,9 +77,5 @@ export class PedidoComponent implements OnInit {
         alert('Erro ao finalizar pedido. Tente novamente.');
       }
     });
-  }
-
-  voltarParaCarrinho(): void {
-    this.router.navigate(['/carrinho']);
   }
 }
